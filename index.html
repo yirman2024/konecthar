@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Konecthar | Conecta tu farmacia y evita pérdidas de ventas</title>
+  <meta name="description" content="Konecthar ayuda a las farmacias a evitar pérdida de clientes, aumentar sus ventas y conectarse con otras droguerías para localizar productos en minutos.">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      background: #0f172a;
+      color: #fff;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: .04em;
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .btn-primary {
+      background: #22c55e;
+      color: #0f172a;
+      box-shadow: 0 10px 18px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: #16a34a;
+      transform: translateY(-1px);
+      box-shadow: 0 16px 28px rgba(22, 163, 74, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #e5e7eb;
+      border: 1px solid #4b5563;
+    }
+
+    .btn-outline:hover {
+      background: #111827;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3rem 0 3.5rem;
+      background: radial-gradient(circle at top left, #22c55e22, transparent 55%),
+                  radial-gradient(circle at top right, #3b82f622, transparent 55%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #166534;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .hero-tag span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      margin-right: 0.35rem;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      color: #4b5563;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtext {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: 1.3rem;
+      padding: 1.5rem;
+      box-shadow: 0 20px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-metric {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .hero-metric span:first-child {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .hero-highlight {
+      margin-top: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed #e5e7eb;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      text-align: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.95rem;
+      max-width: 520px;
+      margin: 0.3rem auto 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+      box-shadow: 0 12px 24px rgba(15,23,42,0.06);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: #4b5563;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    /* Paso a paso */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .step {
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #1d4ed8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-text {
+      color: #6b7280;
+    }
+
+    /* Pricing */
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .price span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 0.9rem;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .list li {
+      margin-bottom: 0.35rem;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 0.75rem;
+      color: #16a34a;
+      margin-top: 0.1rem;
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 0.9rem;
+      padding: 1rem 1.2rem;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 10px 20px rgba(15,23,42,0.04);
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    /* CTA final */
+    .cta-final {
+      text-align: center;
+      padding: 2.5rem 1.5rem 3rem;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin-top: 1rem;
+      border-radius: 1.6rem 1.6rem 0 0;
+    }
+
+    .cta-final h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .cta-final p {
+      font-size: 0.95rem;
+      color: #9ca3af;
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      padding: 1.2rem 0 1.8rem;
+      background: #020617;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .pricing {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      header .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+
+      .nav-links {
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-final h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="logo">Konecthar</div>
+      <div class="nav-links">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#precio">Precio</a>
+        <a href="#faq">Preguntas</a>
+        <a href="https://go.hotmart.com/D103198790P" class="btn btn-outline">Prueba gratis 30 días</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-tag">
+          <span></span> Software para farmacias y droguerías
+        </div>
+        <h1>Evita perder clientes por no tener un producto disponible.</h1>
+        <p>
+          Konecthar conecta tu farmacia con otras droguerías de tu zona para ayudarte
+          a localizar productos en minutos, vender inventario próximo a vencer y
+          aumentar tus ventas sin complicar tu operación.
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://go.hotmart.com/D103198790P" class="btn btn-primary">
+            Empezar prueba gratuita de 30 días
+          </a>
+          <a href="#precio" class="btn btn-outline">
+            Ver precio y beneficios
+          </a>
+        </div>
+        <div class="hero-subtext">
+          Sin contrato, sin cláusulas de permanencia. Si no ves resultados, simplemente cancelas.
+        </div>
+      </div>
+
+      <div>
+        <div class="hero-card">
+          <h3>¿Cuánto podrías estar perdiendo al mes?</h3>
+          <p style="font-size:0.9rem; color:#6b7280;">
+            Supongamos que pierdes solo 3 clientes diarios por no tener un producto.
+          </p>
+          <div class="hero-metric">
+            <span>Ticket promedio</span>
+            <span>$25.000 COP</span>
+          </div>
+          <div class="hero-metric">
+            <span>Clientes perdidos al mes</span>
+            <span>90</span>
+          </div>
+          <div class="hero-metric">
+            <span>Pérdida estimada mensual</span>
+            <span><strong>$2.250.000 COP</strong></span>
+          </div>
+
+          <div class="hero-highlight">
+            Con una inversión de <strong>$64.900 COP/mes</strong>, Konecthar te ayuda a
+            recuperar ventas que hoy se están yendo a la competencia.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section id="beneficios">
+    <div class="container">
+      <h2 class="section-title">Lo que Konecthar hace por tu farmacia</h2>
+      <p class="section-subtitle">
+        Una herramienta diseñada específicamente para el día a día de las farmacias y droguerías independientes.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="badge">Evita pérdida de clientes</div>
+          <h3>Localiza productos en otras farmacias</h3>
+          <p>
+            Cuando no tengas un producto, usa el buscador inteligente para encontrarlo
+            en otras droguerías de tu zona y atender al cliente sin perder la venta.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="badge">Cuida tu inventario</div>
+          <h3>Vende productos próximos a vencer</h3>
+          <p>
+            Publica fácilmente productos que están cerca de su fecha de vencimiento y
+            recupérate de posibles pérdidas conectando con otras farmacias interesadas.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="badge">Gestión asistida</div>
+          <h3>Inventarios protegidos por nuestro equipo</h3>
+          <p>
+            Te acompañamos en la carga y gestión de inventarios para que la información
+            sea confiable y la herramienta trabaje por ti 24/7.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="container">
+      <h2 class="section-title">¿Cómo funciona Konecthar?</h2>
+      <p class="section-subtitle">
+        En pocos pasos tu farmacia estará conectada a una red moderna de abastecimiento y colaboración.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-title">Te registras en línea</div>
+          <div class="step-text">
+            Haces clic en “Empezar prueba gratis”, creas tu acceso y recibes las instrucciones en tu correo o WhatsApp.
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-title">Cargas tu inventario</div>
+          <div class="step-text">
+            Con apoyo de nuestro equipo, subes tu inventario básico usando una plantilla simple o tu sistema actual.
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-title">Empiezas a buscar y conectar</div>
+          <div class="step-text">
+            Usas el buscador para localizar productos en tu farmacia o en otras droguerías de la red y contactas por WhatsApp con un clic.
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-title">Mides tus ventas recuperadas</div>
+          <div class="step-text">
+            Durante los 30 días de prueba ves cuántas ventas logras retener gracias a Konecthar y decides si continúas.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIO -->
+  <section id="precio">
+    <div class="container pricing">
+      <div>
+        <h2 class="section-title" style="text-align:left;">Prueba gratuita y suscripción sencilla</h2>
+        <p style="color:#6b7280; font-size:0.95rem; margin-bottom:1rem;">
+          Queremos que veas resultados antes de pagar un solo peso.
+        </p>
+
+        <div class="card">
+          <p class="badge">30 días gratis</p>
+          <p style="font-size:0.92rem; color:#4b5563; margin-bottom:0.7rem;">
+            Acceso completo a Konecthar durante el primer mes:
+          </p>
+          <ul class="list">
+            <li>Uso ilimitado del buscador inteligente 24/7.</li>
+            <li>Conexión con farmacias y aliados de tu zona.</li>
+            <li>Publicación de productos próximos a vencer.</li>
+            <li>Acompañamiento en la carga de inventarios.</li>
+            <li>Capacitación virtual para todo tu equipo.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <p class="badge">Después de la prueba</p>
+          <p class="price">$64.900 COP <span>/ mes</span></p>
+          <p style="font-size:0.92rem; color:#4b5563; margin-top:0.4rem;">
+            Pago seguro mensual gestionado por Hotmart. Sin permanencia obligatoria.
+          </p>
+          <ul class="list" style="margin-top:0.9rem;">
+            <li>Soporte y actualizaciones incluidas.</li>
+            <li>Ideal para farmacias y droguerías independientes.</li>
+            <li>Recupera con una sola venta lo que pagas en el mes.</li>
+          </ul>
+
+          <div style="margin-top:1.3rem;">
+            <a href="https://go.hotmart.com/D103198790P" class="btn btn-primary" style="width:100%; text-align:center;">
+              Empezar ahora con 30 días gratis
+            </a>
+            <p style="font-size:0.8rem; color:#9ca3af; margin-top:0.6rem; text-align:center;">
+              Si Konecthar no te ayuda a vender más, simplemente no continúas la suscripción.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">Preguntas frecuentes</h2>
+      <p class="section-subtitle">Resolvemos las dudas más comunes de las farmacias antes de empezar.</p>
+
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">¿Necesito ser experto en tecnología para usar Konecthar?</div>
+          <div class="faq-a">
+            No. La herramienta está pensada para farmacias tradicionales. Te damos capacitación virtual,
+            material paso a paso y soporte para que tu equipo la use sin complicaciones.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">¿Qué pasa si después de los 30 días no quiero seguir?</div>
+          <div class="faq-a">
+            No hay permanencia obligatoria. Simplemente no continúas con la suscripción y no se te volverá a cobrar.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">¿Cómo se protege la información de mi inventario?</div>
+          <div class="faq-a">
+            Tus datos se almacenan en servidores seguros y se usan únicamente para el funcionamiento de la plataforma.
+            No se comparten con terceros fuera de la red de farmacias y aliados.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">¿Puedo usar Konecthar si ya tengo un software de facturación?</div>
+          <div class="faq-a">
+            Sí. Konecthar no reemplaza tu sistema actual, lo complementa. Puedes exportar listados de productos
+            desde tu software y nosotros te ayudamos a integrarlos en la plataforma.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section>
+    <div class="cta-final">
+      <div class="container">
+        <h2>Conecta tu farmacia hoy y deja de perder ventas mañana</h2>
+        <p>
+          Únete a la red de farmacias que ya está modernizando la forma de vender productos farmacéuticos.
+          Prueba Konecthar durante 30 días sin riesgo.
+        </p>
+        <a href="https://go.hotmart.com/D103198790P" class="btn btn-primary">
+          Quiero activar mi prueba gratuita
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Konecthar &copy; <span id="year"></span>. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
