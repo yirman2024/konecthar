@@ -14,7 +14,6 @@
     .container{width:100%;max-width:1100px;margin:0 auto;padding:0 1.5rem;}
     .nav{display:flex;justify-content:space-between;align-items:center;}
     .logo{font-size:1.4rem;font-weight:700;}
-
     .nav-links a{margin-left:1.2rem;color:#e5e7eb;text-decoration:none;font-size:.95rem;}
 
     .btn{padding:.75rem 1.4rem;border-radius:999px;font-weight:600;text-decoration:none;display:inline-block;}
@@ -33,11 +32,12 @@
     .hero h1{font-size:2.4rem;margin-bottom:.7rem;}
     .hero p{max-width:600px;margin-bottom:1.2rem;font-size:1.05rem;}
 
+    /* Secciones */
     .benefits, .steps, .pricing, .faq, .cta-final{padding:3rem 0;}
-
     h2{text-align:center;font-size:1.8rem;margin-bottom:1rem;}
     .subtitle{text-align:center;color:#6b7280;margin-bottom:2rem;}
 
+    /* Grid de 3 */
     .grid-3{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -47,8 +47,17 @@
     .card{
       background:#fff;border-radius:1rem;padding:1.5rem;
       box-shadow:0 8px 20px rgba(0,0,0,0.06);
+      text-align:center;
     }
-    .card img{width:100%;border-radius:.8rem;margin-bottom:.8rem;}
+
+    /* MINIATURAS OPTIMIZADAS */
+    .card img{
+      width:100%;
+      height:130px;      /* altura fija pequeña */
+      object-fit:cover;  /* recorte limpio */
+      border-radius:.6rem;
+      margin-bottom:.8rem;
+    }
 
     /* Steps */
     .steps-grid{
@@ -57,7 +66,13 @@
       gap:1rem;
       text-align:center;
     }
-    .step img{width:100%;border-radius:.7rem;margin-bottom:.6rem;}
+    .step img{
+      width:100%;
+      height:120px;
+      object-fit:cover;
+      border-radius:.5rem;
+      margin-bottom:.6rem;
+    }
 
     /* Pricing */
     .pricing-grid{
@@ -70,19 +85,18 @@
     ul{list-style:none;margin-top:1rem;}
     ul li{margin-bottom:.4rem;}
 
-    /* FAQ */
     .faq-item{
       background:#fff;padding:1rem 1.3rem;border-radius:.8rem;
       margin-bottom:.8rem;box-shadow:0 6px 12px rgba(0,0,0,0.05);
     }
 
-    /* CTA final */
     .cta-final{
       text-align:center;background:#0f172a;color:#fff;border-radius:1.5rem 1.5rem 0 0;
+      padding:3rem 1rem;
     }
 
     footer{text-align:center;padding:1rem;background:#020617;color:#94a3b8;font-size:.8rem;}
-    
+
     @media(max-width:768px){
       .grid-3, .steps-grid, .pricing-grid{
         grid-template-columns:1fr;
@@ -122,28 +136,27 @@
     <h2>Beneficios principales</h2>
     <p class="subtitle">Konecthar mejora tus ventas y la experiencia de tus clientes.</p>
 
-    <div class="card">
-  <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=1200&q=80" 
-       alt="Farmacéutico buscando medicamentos en estantería">
+    <div class="grid-3">
 
-  <h3>Encuentra productos rápido</h3>
-  <p>
-    Localiza medicamentos en otras farmacias cuando no los tengas disponibles.
-  </p>
-</div>
-
+      <!-- MINIATURA AJUSTADA -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=900&q=60" alt="Buscar medicamentos rápido">
+        <h3>Encuentra productos rápido</h3>
+        <p>Localiza medicamentos en otras farmacias cuando no los tengas disponibles.</p>
+      </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1580281657527-47d5ad0f0f3b?auto=format&fit=crop&w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1580281657527-47d5ad0f0f3b?auto=format&fit=crop&w=900&q=60">
         <h3>Vende productos próximos a vencer</h3>
         <p>Publica inventario que necesitas rotar rápidamente.</p>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1585432959449-9b7f9f19c241?auto=format&fit=crop&w=1200&q=80">
+        <img src="https://images.unsplash.com/photo-1585432959449-9b7f9f19c241?auto=format&fit=crop&w=900&q=60">
         <h3>Inventarios asistidos</h3>
         <p>Nuestro equipo te ayuda a gestionarlos para mantener todo actualizado.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -155,29 +168,31 @@
     <p class="subtitle">Konecthar trabaja para ti de forma simple y rápida.</p>
 
     <div class="steps-grid">
+
       <div class="step">
-        <img src="https://images.unsplash.com/photo-1585156442840-969b5a09a29c?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1585156442840-969b5a09a29c?auto=format&fit=crop&w=900&q=60">
         <h4>1. Regístrate</h4>
         <p>Crea tu cuenta y accede a tu panel de farmacia.</p>
       </div>
 
       <div class="step">
-        <img src="https://images.unsplash.com/photo-1580281657527-47d5ad0f0f3b?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1580281657527-47d5ad0f0f3b?auto=format&fit=crop&w=900&q=60">
         <h4>2. Carga tu inventario</h4>
         <p>Nosotros te ayudamos a subirlo fácilmente.</p>
       </div>
 
       <div class="step">
-        <img src="https://images.unsplash.com/photo-1584467735871-dc362a3a5a59?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1584467735871-dc362a3a5a59?auto=format&fit=crop&w=900&q=60">
         <h4>3. Busca y conecta</h4>
         <p>Encuentra productos y contacta farmacias por WhatsApp.</p>
       </div>
 
       <div class="step">
-        <img src="https://images.unsplash.com/photo-1597074880651-dc48a6d5cf20?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1597074880651-dc48a6d5cf20?auto=format&fit=crop&w=900&q=60">
         <h4>4. Aumenta tus ventas</h4>
         <p>Recupera clientes y reduce pérdidas desde el primer mes.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -261,3 +276,4 @@
 
 </body>
 </html>
+
